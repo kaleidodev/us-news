@@ -15,15 +15,11 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   
-  // 并行编译以加快构建
+  // 并行编译以加快构建（Turbopack 已内置优化）
   experimental: {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-  
-  // 构建优化
-  compress: true,
-  swcMinify: true,
 };
 
 export default nextConfig;
