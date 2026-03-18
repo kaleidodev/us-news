@@ -1,7 +1,7 @@
 'use client';
 
-import { AISummarizer } from './AISummarizer';
-import { Bookmark, Share2, MessageCircle, Mail, Link2 } from 'lucide-react';
+import { AIArticleModule } from './AIArticleModule';
+import { Bookmark, Mail } from 'lucide-react';
 
 interface ArticlePageProps {
   title?: string;
@@ -105,11 +105,13 @@ export function ArticlePage({
           </div>
         </div>
 
-        {/* AI Summarizer - Primary Feature */}
+        {/* AI Article Module - Responsive Feature */}
         <div className="mb-8">
-          <AISummarizer 
+          <AIArticleModule 
             articleTitle={title}
             articleContent={subtitle}
+            defaultExpanded={false}
+            mode="auto"
           />
         </div>
 
@@ -121,7 +123,7 @@ export function ArticlePage({
         {/* Article Body */}
         <article className="prose prose-lg max-w-none mb-12">
           <p>
-            If you're looking for a picks-and-shovels way to play the artificial intelligence boom, you could do worse than invest in the supply chain that provides it with electricity.
+            If you&apos;re looking for a picks-and-shovels way to play the artificial intelligence boom, you could do worse than invest in the supply chain that provides it with electricity.
           </p>
           <p>
             Because of the computing power needed for AI calculations and the cooling that is needed for those computers, the data centers that house AI servers consume a lot of electricity. An April report from the International Energy Agency projected that electricity consumption from data centers will grow to 945 terawatt-hours by 2030 from 415 TWh in 2024, a rise of about 15% per year. According to a July report from Goldman Sachs, the peak power demand from artificial intelligence data centers could exceed the annual electricity consumption of Argentina.

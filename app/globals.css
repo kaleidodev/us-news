@@ -3,6 +3,40 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* AI Article Module - Primary Colors */
+  --ai-primary: #1263d3;
+  --ai-primary-dark: #0d4fa8;
+  --ai-accent: #448aff;
+  --ai-bg-light: #f4f7f9;
+  --ai-bg-blue-50: #eff6ff;
+
+  /* Neutral Colors */
+  --ai-border-gray: #e5e7eb;
+  --ai-text-gray: #4b5563;
+  --ai-text-dark: #1a202c;
+  --ai-text-light: #6b7280;
+
+  /* Semantic Colors */
+  --ai-success: #10b981;
+  --ai-success-light: #dcfce7;
+  --ai-error: #ef4444;
+  --ai-error-light: #fee2e2;
+  --ai-warning: #f59e0b;
+  --ai-info: #3b82f6;
+  --ai-info-light: #dbeafe;
+
+  /* Spacing & Border Radius */
+  --ai-radius-sm: 6px;
+  --ai-radius-md: 8px;
+  --ai-radius-lg: 12px;
+  --ai-radius-xl: 16px;
+  --ai-radius-2xl: 24px;
+
+  /* Shadows */
+  --ai-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ai-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --ai-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 @theme inline {
@@ -23,4 +57,40 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Utility Classes for AI Article Module */
+.ai-module {
+  border-radius: var(--ai-radius-lg);
+}
+
+.ai-module-lg {
+  border-radius: var(--ai-radius-2xl);
+}
+
+.ai-header {
+  background-color: var(--ai-primary);
+  color: white;
+}
+
+.ai-button-primary {
+  background-color: var(--ai-primary);
+  color: white;
+  border-radius: var(--ai-radius-md);
+  transition: background-color 0.2s ease;
+}
+
+.ai-button-primary:hover {
+  background-color: var(--ai-primary-dark);
+}
+
+.ai-card {
+  background-color: white;
+  border: 1px solid var(--ai-border-gray);
+  border-radius: var(--ai-radius-lg);
+  box-shadow: var(--ai-shadow-sm);
+}
+
+.ai-card:hover {
+  box-shadow: var(--ai-shadow-md);
 }

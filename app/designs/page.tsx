@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function DesignsPage() {
   return (
     <div className="min-h-screen bg-gray-50 p-8">
@@ -57,17 +59,17 @@ export default function DesignsPage() {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
             <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-8 py-6">
               <h2 className="text-2xl font-bold text-white">Node ID: 256-11356</h2>
-              <p className="text-blue-100 mt-1">AI 总结按钮 - 带展开示例</p>
+              <p className="text-blue-100 mt-1">AI Article Module - 折叠状态</p>
             </div>
             <div className="p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">📋 描述</h3>
               <p className="text-gray-700 mb-6">
-                展示 AI 总结功能的按钮，点击后展开为完整的 AI 回复面板。
+                统一响应式 AI Article Module 的折叠状态。在所有屏幕尺寸上响应式适配，点击展开为完整面板。
               </p>
               
               <h3 className="text-xl font-semibold text-gray-900 mb-4">🔧 实现组件</h3>
               <code className="bg-gray-100 text-gray-800 px-4 py-2 rounded inline-block font-mono text-sm">
-                AISummarizer (collapsed state)
+                AIArticleModule (collapsed state)
               </code>
               
               <h3 className="text-xl font-semibold text-gray-900 mb-4 mt-6">✨ 特性</h3>
@@ -93,17 +95,17 @@ export default function DesignsPage() {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
             <div className="bg-gradient-to-r from-blue-400 to-blue-500 px-8 py-6">
               <h2 className="text-2xl font-bold text-white">Node ID: 255-6851</h2>
-              <p className="text-blue-100 mt-1">展开的 AI 总结面板</p>
+              <p className="text-blue-100 mt-1">AI Article Module - 展开状态（小屏/中屏）</p>
             </div>
             <div className="p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">📋 描述</h3>
               <p className="text-gray-700 mb-6">
-                完整展开的 AI 总结面板，显示对话、要点、推荐文章和后续问题。
+                统一 AIArticleModule 在小屏和中屏尺寸上的展开状态，显示对话、要点、推荐文章、反馈和后续问题。
               </p>
               
               <h3 className="text-xl font-semibold text-gray-900 mb-4">🔧 实现组件</h3>
               <code className="bg-gray-100 text-gray-800 px-4 py-2 rounded inline-block font-mono text-sm">
-                AISummarizer (expanded state)
+                AIArticleModule (expanded state)
               </code>
               
               <h3 className="text-xl font-semibold text-gray-900 mb-4 mt-6">✨ 特性</h3>
@@ -157,17 +159,17 @@ export default function DesignsPage() {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
             <div className="bg-gradient-to-r from-indigo-600 to-blue-600 px-8 py-6">
               <h2 className="text-2xl font-bold text-white">Node ID: 353-23519</h2>
-              <p className="text-indigo-100 mt-1">大型 AI 总结面板 - 专业版</p>
+              <p className="text-indigo-100 mt-1">AI Article Module - 展开状态（大屏）</p>
             </div>
             <div className="p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">📋 描述</h3>
               <p className="text-gray-700 mb-6">
-                全屏幕大型 AI 总结面板，用于深度阅读和交互体验。
+                统一 AIArticleModule 在大屏尺寸（1200px+）上的展开状态，采用大型 rail 设计语言和完整展开态视觉风格。
               </p>
               
               <h3 className="text-xl font-semibold text-gray-900 mb-4">🔧 实现组件</h3>
               <code className="bg-gray-100 text-gray-800 px-4 py-2 rounded inline-block font-mono text-sm">
-                AISummarizerLarge
+                AIArticleModule (desktop expanded)
               </code>
               
               <h3 className="text-xl font-semibold text-gray-900 mb-4 mt-6">✨ 特性</h3>
@@ -225,14 +227,14 @@ export default function DesignsPage() {
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-4 py-3 font-mono text-blue-600">256-11356</td>
-                  <td className="px-4 py-3 font-semibold">AISummarizer</td>
-                  <td className="px-4 py-3">AI 总结按钮</td>
+                  <td className="px-4 py-3 font-semibold">AIArticleModule</td>
+                  <td className="px-4 py-3">模块折叠状态</td>
                   <td className="px-4 py-3"><span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">✅ 完成</span></td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-4 py-3 font-mono text-blue-600">255-6851</td>
-                  <td className="px-4 py-3 font-semibold">AISummarizer</td>
-                  <td className="px-4 py-3">展开的总结面板</td>
+                  <td className="px-4 py-3 font-semibold">AIArticleModule</td>
+                  <td className="px-4 py-3">展开状态（小/中屏）</td>
                   <td className="px-4 py-3"><span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">✅ 完成</span></td>
                 </tr>
                 <tr className="hover:bg-gray-50">
@@ -243,8 +245,8 @@ export default function DesignsPage() {
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="px-4 py-3 font-mono text-blue-600">353-23519</td>
-                  <td className="px-4 py-3 font-semibold">AISummarizerLarge</td>
-                  <td className="px-4 py-3">大型 AI 面板</td>
+                  <td className="px-4 py-3 font-semibold">AIArticleModule</td>
+                  <td className="px-4 py-3">展开状态（大屏）</td>
                   <td className="px-4 py-3"><span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">✅ 完成</span></td>
                 </tr>
               </tbody>
@@ -256,12 +258,12 @@ export default function DesignsPage() {
         <div className="mt-12 p-8 bg-blue-50 border border-blue-200 rounded-lg">
           <h3 className="text-xl font-bold text-blue-900 mb-4">🔗 查看实现</h3>
           <div className="space-y-3">
-            <a href="/" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold">
+            <Link href="/" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold">
               → 查看主页（ArticlePage）
-            </a>
-            <a href="/components-demo" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold">
+            </Link>
+            <Link href="/components-demo" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold">
               → 查看组件演示
-            </a>
+            </Link>
             <a href="https://github.com" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold">
               → 在 GitHub 查看代码
             </a>
