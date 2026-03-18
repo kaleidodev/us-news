@@ -1,8 +1,6 @@
 const config = {
   plugins: {
-    "@tailwindcss/postcss": {
-      lightningcss: false,
-    },
+    "@tailwindcss/postcss": {},
   },
 };
 
