@@ -36,7 +36,8 @@ function InlineLink({ text }: { text: string }) {
   return (
     <a
       href="#"
-      className="text-[#005fcc] hover:underline"
+      className="hover:underline"
+      style={{ color: '#005fcc', fontFamily: 'var(--font-open-sans), sans-serif' }}
     >
       {text}
     </a>
@@ -100,7 +101,7 @@ function P({ children }: { children: React.ReactNode }) {
 
 export function ArticleBody() {
   return (
-    <article className="flex flex-col gap-5">
+    <article className="article-body flex flex-col gap-5">
       {/* Hero Image */}
       <figure className="w-full">
         <img
@@ -127,10 +128,21 @@ export function ArticleBody() {
 
       {/* Related callout */}
       <RelatedBox>
-        <p className="text-[14px] font-semibold leading-5 text-[#333d4d]" style={{ fontFamily: 'var(--font-open-sans), sans-serif' }}>
-          Related:{' '}
-          <InlineLink text="Sign up for stock news with our Invested newsletter." />
-        </p>
+        <div className="flex flex-col items-start gap-[8.5px]">
+          <p
+            className="text-[14px] font-semibold leading-5 text-[#333d4d]"
+            style={{ fontFamily: 'var(--font-open-sans), sans-serif' }}
+          >
+            Related:
+          </p>
+          <a
+            href="#"
+            className="text-[14px] leading-5 text-[#005fcc] hover:underline"
+            style={{ fontFamily: 'var(--font-open-sans), sans-serif' }}
+          >
+            Sign up for stock news with our Invested newsletter.
+          </a>
+        </div>
       </RelatedBox>
 
       <P>

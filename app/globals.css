@@ -34,7 +34,6 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -58,6 +57,10 @@ img {
   color: var(--usn-text);
   font-size: 17px;
   line-height: 27.63px;
+}
+
+.article-body a {
+  color: var(--usn-blue);
 }
 
 .article-body p + p {

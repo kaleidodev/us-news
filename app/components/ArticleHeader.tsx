@@ -1,6 +1,5 @@
 'use client';
 
-const reviewerIconSrc = '/figma-assets/36f4e946bd6014365fcdd18aac8d9509211d1b10.svg';
 const saveShareBarSrc = '/figma-assets/cf309d3af0ac7a0083d9ccf31caedfc0c2a105b1.png';
 
 interface ArticleHeaderProps {
@@ -50,12 +49,12 @@ export function ArticleHeader({
 
         <span className="text-[#737d8c]">|</span>
 
-        <span className="inline-flex items-center gap-1.5">
-          <img
-            alt=""
-            className="h-[22px] w-[23px]"
-            src={reviewerIconSrc}
-          />
+        <span className="inline-flex items-center gap-1 align-middle">
+        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3.52344H3C1.89543 3.52344 1 4.41887 1 5.52344V20.0234C1 21.128 1.89543 22.0234 3 22.0234H17.5C18.6046 22.0234 19.5 21.128 19.5 20.0234V11.0234" stroke="#4E8FE6" strokeWidth="2"/>
+         <path d="M11.7109 11.6663L6.61573 8.40567C6.34949 8.23529 6.01349 8.42604 6.06287 8.73825C6.43811 11.1105 8.44864 14.9311 10.8037 17.5801C11.2419 18.073 12.02 17.9511 12.334 17.3711C15.4399 11.6347 18.4346 6.28328 22.604 1.86528C22.7738 1.68538 22.511 1.37122 22.3101 1.51544C15.0008 6.76055 12.4323 10.611 11.7109 11.6663Z" fill="black"/>
+        </svg>
+
           Reviewed by{' '}
           <a className="text-black underline" href="#">
             {reviewer}
@@ -70,16 +69,12 @@ export function ArticleHeader({
       {/* Save / Share actions bar */}
       <div className="flex items-center gap-2">
         {/* Save button */}
-        <button className="flex items-center gap-2 rounded-full border border-[#d1d1d1] px-[17px] py-[9px] text-[14px] leading-5 text-[#1f252e] hover:bg-[#f3f5f6] transition-colors">
-          <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M3.33 2.5H12.67C13.4 2.5 14 3.1 14 3.83V14L8 11.5L2 14V3.83C2 3.1 2.6 2.5 3.33 2.5Z"
-              stroke="#1f252e"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+        <button className="flex items-center gap-2 rounded-full border border-[#d1d1d1] px-[15px] py-[9px] text-[14px] leading-5 text-[#404040] hover:bg-[#f3f5f6] transition-colors">
+        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M12 3.52344H3C1.89543 3.52344 1 4.41887 1 5.52344V20.0234C1 21.128 1.89543 22.0234 3 22.0234H17.5C18.6046 22.0234 19.5 21.128 19.5 20.0234V11.0234" stroke="#4E8FE6" stroke-width="2"/>
+         <path d="M11.7109 11.6663L6.61573 8.40567C6.34949 8.23529 6.01349 8.42604 6.06287 8.73825C6.43811 11.1105 8.44864 14.9311 10.8037 17.5801C11.2419 18.073 12.02 17.9511 12.334 17.3711C15.4399 11.6347 18.4346 6.28328 22.604 1.86528C22.7738 1.68538 22.511 1.37122 22.3101 1.51544C15.0008 6.76055 12.4323 10.611 11.7109 11.6663Z" fill="black"/>
+        </svg>
+
           Save
         </button>
 
