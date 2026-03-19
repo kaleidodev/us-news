@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const usnLogoSrc = '/figma-assets/5b8eb72d625e6b7705425a98a5513b9c1502893d.png';
 const recommendationCards = [
@@ -184,6 +184,20 @@ function CloseDotButton({ onClick }: { onClick: () => void }) {
 
 export function FloatingButton() {
   const [state, setState] = useState<FloatingState>('collapsed');
+
+  useEffect(() => {
+    if (state !== 'expanded-button') {
+      return undefined;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setState('collapsed');
+    }, 3000);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [state]);
 
   return (
     <div className="fixed bottom-6 left-5 z-50">
