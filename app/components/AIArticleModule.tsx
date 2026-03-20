@@ -108,6 +108,7 @@ export function AIArticleModule({
   const typingTimerRef = useRef<NodeJS.Timeout | null>(null);
   const generatingTimerRef = useRef<NodeJS.Timeout | null>(null);
   const isPopup = layout === 'popup';
+  const isFullscreenModal = isExpanded && !isPopup;
 
   const handleCollapse = () => {
     if (onCollapse) return onCollapse();
@@ -129,7 +130,7 @@ export function AIArticleModule({
     }, 20);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (typingTimerRef.current) {
       clearInterval(typingTimerRef.current);
       typingTimerRef.current = null;
@@ -168,6 +169,15 @@ export function AIArticleModule({
       if (generatingTimerRef.current) clearTimeout(generatingTimerRef.current);
     };
   }, [isGenerating]);
+
+  useEffect(() => {
+    if (!isFullscreenModal) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isFullscreenModal]);
 
   // Collapsed state - visible on all breakpoints
   if (!isExpanded) {
@@ -261,7 +271,8 @@ export function AIArticleModule({
 
   // Expanded state
   return (
-    <div className={`w-full overflow-hidden border border-gray-200 bg-gradient-to-b from-blue-50 to-white shadow-lg ${layout === 'popup' ? 'flex h-full max-h-[min(923px,calc(100vh-48px))] flex-col rounded-[20px]' : 'rounded-lg md:rounded-2xl'}`}>
+    <div className={isPopup ? 'w-full h-full' : 'fixed inset-0 z-50 bg-white xl:static xl:z-auto xl:bg-transparent'}>
+      <div className={`w-full overflow-hidden border border-gray-200 bg-gradient-to-b from-blue-50 to-white shadow-lg ${layout === 'popup' ? 'flex h-full max-h-[min(923px,calc(100vh-48px))] flex-col rounded-[20px]' : 'flex h-full flex-col rounded-none xl:rounded-lg xl:rounded-2xl xl:h-auto'}`}>
       {/* Header */}
       <div className="flex items-center justify-between gap-3 bg-[#1263d3] p-4 text-white">
         <div className="flex min-w-0 items-center gap-2">
@@ -284,12 +295,12 @@ export function AIArticleModule({
           type="button"
           className="shrink-0 rounded-[4px] p-[6px] transition-colors hover:bg-white/10"
         >
-          <ChevronDown className={`h-5 w-5 ${isPopup ? '' : 'rotate-180'}`} />
+          <ChevronDown className="h-5 w-5" />
         </button>
       </div>
 
       {/* Content - scrollable on mobile, normal on larger screens */}
-      <div className={`space-y-4 overflow-y-auto p-3 md:space-y-6 md:p-6 ${layout === 'popup' ? 'min-h-0 flex-1' : 'max-h-[60vh] md:max-h-none'}`}>
+      <div className={`min-h-0 flex-1 space-y-4 overflow-y-auto p-3 md:space-y-6 md:p-6 ${layout === 'popup' ? '' : 'xl:max-h-[60vh] xl:flex-none xl:min-h-auto xl:overflow-y-visible'}`}>
         {!hasStartedChat ? (
           <div className={`flex flex-col items-center justify-center gap-8 ${layout === 'popup' ? 'min-h-[320px] lg:min-h-[360px]' : 'min-h-[420px] lg:min-h-[520px]'}`}>
             <div className="flex flex-col items-center gap-4">
@@ -520,18 +531,26 @@ export function AIArticleModule({
       </div>
 
       {/* Input Area */}
-      <form onSubmit={handleSubmit} className="flex gap-2 border-t border-gray-200 bg-white p-3 md:p-4">
-        <input
-          type="text"
+      <form onSubmit={handleSubmit} className="mt-auto flex shrink-0 flex-col items-end justify-between border-t border-[rgba(211,215,220,0.6)] bg-white px-4 py-3">
+        <textarea
           placeholder="Type your question..."
           value={followUpInput}
           onChange={handleInputChange}
-          className="flex-1 rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 text-xs placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#1263d3] md:px-4 md:py-3 md:text-sm"
+          rows={3}
+          className="min-h-[72px] w-full resize-none border-0 bg-transparent p-0 text-[16px] leading-6 text-[#1a1d26] placeholder:text-[#727272] focus:outline-none"
         />
-        <button type="submit" className="rounded-lg bg-[#1263d3] px-3 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#0d4fa8] flex-shrink-0 md:px-6 md:py-3 md:text-sm">
-          Send
+        <button
+          type="submit"
+          aria-label="Send"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#1263d3] text-white transition-colors hover:bg-[#0d4fa8]"
+        >
+          <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 2.33331V13.6666" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            <path d="M3.33334 6.99998L8 2.33331L12.6667 6.99998" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
       </form>
+      </div>
     </div>
   );
 }
