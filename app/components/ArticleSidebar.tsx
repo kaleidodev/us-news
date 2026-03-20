@@ -20,7 +20,6 @@ export function ArticleSidebar() {
 
       {/* Sticky section */}
       <div className="sticky top-4 flex flex-col gap-6">
-        {/* AI Summarizer widget */}
         <AskArticleWidget />
 
         {/* Financial Tools */}

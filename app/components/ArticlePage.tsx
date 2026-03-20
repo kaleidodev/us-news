@@ -5,6 +5,7 @@ import { Breadcrumbs } from './Breadcrumbs';
 import { ArticleHeader } from './ArticleHeader';
 import { ArticleBody } from './ArticleBody';
 import { ArticleSidebar } from './ArticleSidebar';
+import { AIArticleModule } from './AIArticleModule';
 import { FloatingButton } from './FloatingButton';
 
 interface ArticlePageProps {
@@ -50,6 +51,10 @@ export function ArticlePage({
               date={date}
             />
 
+            <div className="mt-6 xl:hidden">
+              <AIArticleModule defaultExpanded={false} mode="auto" />
+            </div>
+
             {/* Article body: hero image, paragraphs, table, sections */}
             <div className="mt-6">
               <ArticleBody />
@@ -61,7 +66,7 @@ export function ArticlePage({
         </div>
       </main>
 
-      <FloatingButton />
+      <FloatingButton className="hidden xl:block" />
     </div>
   );
 }

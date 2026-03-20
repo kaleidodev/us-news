@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { AIArticleModule } from './AIArticleModule';
 
 const usnLogoSrc = '/figma-assets/5b8eb72d625e6b7705425a98a5513b9c1502893d.png';
 const recommendationCards = [
@@ -182,7 +183,7 @@ function CloseDotButton({ onClick }: { onClick: () => void }) {
   );
 }
 
-export function FloatingButton() {
+export function FloatingButton({ className = '' }: { className?: string }) {
   const [state, setState] = useState<FloatingState>('collapsed');
 
   useEffect(() => {
@@ -200,7 +201,7 @@ export function FloatingButton() {
   }, [state]);
 
   return (
-    <div className="fixed bottom-6 left-5 z-50">
+    <div className={`fixed bottom-6 left-5 z-50 ${className}`}>
       {state === 'collapsed' ? (
         <button
           aria-label="Open AI summary"
@@ -231,174 +232,8 @@ export function FloatingButton() {
       ) : null}
 
       {state === 'expanded-panel' ? (
-        <section className="flex h-[923px] max-h-[calc(100vh-48px)] w-[474px] max-w-[calc(100vw-40px)] flex-col overflow-hidden rounded-[20px] bg-[#f4f7f9] shadow-[0_0_10px_rgba(0,0,0,0.25)]">
-          <header className="flex items-center justify-between bg-[#1263d3] px-4 py-4 text-white">
-            <div className="flex min-w-0 items-center gap-2">
-              <Image alt="US News" className="h-6 w-6 shrink-0 object-cover" height={24} src={usnLogoSrc} width={24} />
-              <p
-                className="truncate text-[14px] font-bold leading-5"
-                style={{ fontFamily: 'var(--font-montserrat), sans-serif' }}
-              >
-                Ask A.I. for quicker answers
-              </p>
-              <div className="flex h-5 items-center rounded-[10px] bg-[#d6eefd] px-2">
-                <span
-                  className="text-[12px] font-bold leading-none text-[#033493]"
-                  style={{ fontFamily: 'var(--font-roboto), sans-serif' }}
-                >
-                  BETA
-                </span>
-                <InfoIcon />
-              </div>
-            </div>
-            <CloseDotButton onClick={() => setState('expanded-button')} />
-          </header>
-
-          <div className="flex-1 overflow-y-auto p-3">
-            <div className="flex flex-col gap-4">
-              <div className="flex justify-end">
-                <div
-                  className="rounded-[8px] bg-[rgba(68,138,255,0.2)] px-4 py-3 text-[14px] leading-6 text-black"
-                  style={{ fontFamily: 'var(--font-roboto), sans-serif' }}
-                >
-                  Summarize this article for me.
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <p
-                  className="text-[14px] leading-5 text-[#1a1d26]"
-                  style={{ fontFamily: 'var(--font-roboto), sans-serif' }}
-                >
-                  The Fed paused rate hikes, but high-yield savings accounts and CDs can still keep your cash growing at
-                  strong rates.
-                </p>
-
-                <ul
-                  className="flex flex-col gap-4 pl-4 text-[14px] leading-8 text-[#1a1d26]"
-                  style={{ fontFamily: 'var(--font-roboto), sans-serif' }}
-                >
-                  {summaryPoints.map((point) => (
-                    <li key={point.text} className="list-disc">
-                      <span className="leading-5">{point.text}</span>
-                      <span className="ml-2 inline-flex gap-1 align-middle">
-                        {point.badges.map((badge) => (
-                          <span
-                            key={badge}
-                            className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#1263d3] text-center text-[10px] leading-6 text-white"
-                          >
-                            {badge}
-                          </span>
-                        ))}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="flex gap-[10px] rounded-[8px] bg-[#e9eefc] px-3 py-2">
-                  <div className="flex h-5 w-5 shrink-0 items-center justify-center">
-                    <AlertIcon />
-                  </div>
-                  <p
-                    className="text-[14px] leading-5 text-[#515767]"
-                    style={{ fontFamily: 'var(--font-roboto), sans-serif', fontStyle: 'italic', fontStretch: 'condensed' }}
-                  >
-                    <span className="font-bold">Disclaimer:</span> The information provided is for general educational use
-                    only. Consult a financial professional for advice specific to your situation.
-                  </p>
-                </div>
-
-                <div className="-mx-3 overflow-x-auto px-3 pb-1">
-                  <div className="flex w-max gap-4">
-                    {recommendationCards.map((card) => (
-                      <article
-                        key={card.title}
-                        className="w-[178px] overflow-hidden rounded-[16px] border border-[rgba(0,0,0,0.1)] bg-white"
-                      >
-                        <Image
-                          alt=""
-                          className="aspect-[219/121] w-full object-cover"
-                          height={98}
-                          src={card.imageSrc}
-                          width={178}
-                        />
-                        <div className="px-3 pb-3 pt-[14px]">
-                          <p
-                            className="text-[14px] leading-[18px] text-[#626262]"
-                            style={{ fontFamily: 'var(--font-roboto), sans-serif' }}
-                          >
-                            {card.title}
-                          </p>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-end gap-4 text-[#0a3139]">
-                  <p
-                    className="text-[14px] leading-4"
-                    style={{ fontFamily: 'var(--font-roboto), sans-serif' }}
-                  >
-                    Was this response helpful?
-                  </p>
-                  <div className="flex items-center gap-2 text-[#9299a7]">
-                    <button aria-label="Helpful" className="transition-colors hover:text-[#1263d3]" type="button">
-                      <ThumbsUpIcon />
-                    </button>
-                    <button aria-label="Not helpful" className="transition-colors hover:text-[#1263d3]" type="button">
-                      <ThumbsDownIcon />
-                    </button>
-                  </div>
-                </div>
-
-                <div className="rounded-[12px] bg-white p-2">
-                  <p
-                    className="text-[14px] leading-6 text-[#2c303c]"
-                    style={{ fontFamily: 'var(--font-roboto), sans-serif' }}
-                  >
-                    Is there anything else we can help you with?
-                  </p>
-                  <div className="mt-3 flex flex-col gap-3">
-                    {suggestedQuestions.map((question) => (
-                      <button
-                        key={question}
-                        className="w-full rounded-[8px] border border-[#c2d6f0] bg-[#f0f7ff] px-4 py-3 text-left text-[14px] leading-5 text-[#1263d3] transition-colors hover:bg-[#e6f2ff]"
-                        style={{ fontFamily: 'var(--font-roboto), sans-serif' }}
-                        type="button"
-                      >
-                        {question}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <footer className="flex min-h-[138px] flex-col justify-between border border-[rgba(211,215,220,0.6)] bg-white px-4 py-3">
-            <p
-              className="text-[16px] leading-6 text-[#727272]"
-              style={{ fontFamily: 'var(--font-roboto), sans-serif' }}
-            >
-              Summarize this article for me.
-            </p>
-            <div className="flex items-center justify-end gap-2">
-              <span
-                className="text-[16px] leading-6 text-[rgba(114,114,114,0.8)]"
-                style={{ fontFamily: 'var(--font-roboto), sans-serif' }}
-              >
-                0/500
-              </span>
-              <button
-                aria-label="Send question"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1263d3] text-white transition-colors hover:bg-[#0e52b3]"
-                type="button"
-              >
-                <SendIcon />
-              </button>
-            </div>
-          </footer>
+        <section className="h-[min(923px,calc(100vh-48px))] w-[474px] max-w-[calc(100vw-40px)]">
+          <AIArticleModule defaultExpanded={true} mode="expanded" layout="popup" onCollapse={() => setState('expanded-button')} />
         </section>
       ) : null}
     </div>

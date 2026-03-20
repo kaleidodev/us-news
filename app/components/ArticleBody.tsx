@@ -145,21 +145,29 @@ export function ArticleBody() {
         </div>
       </RelatedBox>
 
-      <P>
+      <p
+        id="ai-ref-1"
+        className="scroll-mt-24 text-[17px] leading-[27.63px] text-[#333d4d]"
+        style={{ fontFamily: 'var(--font-open-sans), sans-serif' }}
+      >
         Much of that supply is expected to come from nuclear energy. Unlike{' '}
         <InlineLink text="natural gas" /> and coal, nuclear power doesn&apos;t produce greenhouse gas emissions even while
         being able to generate stable baseload power for homes and businesses when intermittent solar and wind power
         can&apos;t.
-      </P>
+      </p>
 
-      <P>
+      <p
+        id="ai-ref-2"
+        className="scroll-mt-24 text-[17px] leading-[27.63px] text-[#333d4d]"
+        style={{ fontFamily: 'var(--font-open-sans), sans-serif' }}
+      >
         The <InlineLink text="green aspect of nuclear energy" /> is particularly attractive to Big Tech companies that
         want to burnish their sustainability credentials. Microsoft Corp. (ticker:{' '}
         <Ticker symbol="MSFT" />
         ), Alphabet Inc.&apos;s ( <Ticker symbol="GOOG" />, <Ticker symbol="GOOGL" />) Google, Meta Platforms Inc. (
         {' '}<Ticker symbol="META" />) and Amazon.com Inc. ( <Ticker symbol="AMZN" />) have all indicated they want
         nuclear-powered data centers.
-      </P>
+      </p>
 
       {/* Blockquote */}
       <Blockquote
@@ -167,17 +175,25 @@ export function ArticleBody() {
         attribution="— Benjamin Rains, stock strategist at Zacks Investment Research"
       />
 
-      <P>
+      <p
+        id="ai-ref-3"
+        className="scroll-mt-24 text-[17px] leading-[27.63px] text-[#333d4d]"
+        style={{ fontFamily: 'var(--font-open-sans), sans-serif' }}
+      >
         The U.S. government is also getting behind the <InlineLink text="nuclear theme" />. Executive orders from
         President Donald Trump have added to Joe Biden-era support in the Infrastructure Investment and Jobs Act and
         the Inflation Reduction Act, on top of other congressional action.
-      </P>
+      </p>
 
-      <P>
+      <p
+        id="ai-ref-4"
+        className="scroll-mt-24 text-[17px] leading-[27.63px] text-[#333d4d]"
+        style={{ fontFamily: 'var(--font-open-sans), sans-serif' }}
+      >
         &quot;The U.S. government, under Biden and now Trump, has ramped up its efforts to support nuclear energy growth,
         aiming to help cut red tape and actively support the industry through tax credits, grants, loans and more,&quot;
         Rains says.
-      </P>
+      </p>
 
       <p
         className="text-[17px] font-semibold leading-[27.63px] text-[#333d4d]"
@@ -230,7 +246,7 @@ export function ArticleBody() {
       </div>
 
       {/* Section: Cameco */}
-      <section className="flex flex-col gap-5">
+      <section id="ai-ref-5" className="scroll-mt-24 flex flex-col gap-5">
         <SectionHeading prefix="Cameco Corp. ( " ticker="CCJ" />
         <P>
           During a slump after the 2011 Fukushima Daiichi nuclear reactor disaster in Japan, the{' '}
@@ -251,7 +267,7 @@ export function ArticleBody() {
       </section>
 
       {/* Section: GE Vernova */}
-      <section className="flex flex-col gap-5">
+      <section id="ai-ref-6" className="scroll-mt-24 flex flex-col gap-5">
         <SectionHeading prefix="GE Vernova Inc. ( " ticker="GEV" />
         <P>
           This company is a play on small modular reactors, or SMRs. These reactors represent the next generation of
