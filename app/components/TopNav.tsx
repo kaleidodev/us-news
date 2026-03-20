@@ -28,7 +28,7 @@ export function TopNav({ activeItem = 'Investing' }: TopNavProps) {
 
   return (
     <header className="w-full bg-[#171923] text-white">
-      <div className="mx-auto flex h-[86px] max-w-[2048px] items-center gap-3 xl:px-7">
+      <div className="mx-auto flex h-[86px] max-w-[2048px] items-center gap-3 px-4 md:px-6 xl:px-7">
         <Link href="/" aria-label="U.S. News home" className="shrink-0">
           <Image
             alt="U.S. News"

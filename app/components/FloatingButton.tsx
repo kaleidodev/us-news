@@ -215,13 +215,13 @@ export function FloatingButton() {
       {state === 'expanded-button' ? (
         <button
           aria-label="Open AI panel"
-          className="flex h-12 w-[307px] items-center gap-3 rounded-full bg-[#1263d3] px-5 py-3 text-left text-white shadow-[0_10px_15px_-3px_rgba(61,71,81,0.1),0_4px_6px_-4px_rgba(61,71,81,0.08)] transition-colors hover:bg-[#0e52b3]"
+          className="flex h-12 w-auto max-w-[400px] items-center gap-3 rounded-full bg-[#1263d3] px-5 py-3 text-left text-white shadow-[0_10px_15px_-3px_rgba(61,71,81,0.1),0_4px_6px_-4px_rgba(61,71,81,0.08)] transition-colors hover:bg-[#0e52b3]"
           onClick={() => setState('expanded-panel')}
           type="button"
         >
           <Image alt="US News" className="h-6 w-6 shrink-0 object-cover" height={24} src={usnLogoSrc} width={24} />
           <span
-            className="min-w-0 flex-1 text-[16px] font-medium leading-6"
+            className="flex-1 text-[16px] font-medium leading-6 whitespace-nowrap"
             style={{ fontFamily: 'var(--font-source-sans-3), var(--font-open-sans), sans-serif' }}
           >
             Summarize this article for me

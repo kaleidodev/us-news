@@ -7,18 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #121217;
-    --bg-soft: #191a21;
-    --panel: #24252d;
-    --panel-soft: rgba(255,255,255,0.03);
     --line: rgba(255,255,255,0.08);
     --line-strong: rgba(255,255,255,0.14);
     --text: #f4f7fb;
     --muted: #98a2b3;
-    --blue: #4c78ff;
-    --cyan: #1db6e8;
-    --red: #ff5d66;
-    --gold: #ffb86c;
     --shadow: 0 24px 80px rgba(0,0,0,0.35);
     --radius: 28px;
   }
@@ -56,240 +48,12 @@
     z-index: 1;
   }
 
-  .hero {
-    display: grid;
-    grid-template-columns: minmax(320px, 1.05fr) minmax(360px, 0.95fr);
-    gap: 28px;
-    align-items: stretch;
-  }
-
-  .hero-copy,
-  .hero-visual,
-  .panel,
-  .detail-card,
-  .metric-card {
+  .panel {
     border: 1px solid var(--line);
     background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
     box-shadow: var(--shadow);
     backdrop-filter: blur(14px);
   }
-
-  .hero-copy {
-    border-radius: 36px;
-    padding: 38px;
-    min-height: 540px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-copy::after {
-    content: "";
-    position: absolute;
-    inset: auto -10% -24% 12%;
-    height: 240px;
-    background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 72%);
-    pointer-events: none;
-  }
-
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: #c4ccd7;
-    font: 500 12px/1 'IBM Plex Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-  }
-
-  .eyebrow::before {
-    content: "";
-    width: 28px;
-    height: 1px;
-    background: rgba(255,255,255,0.28);
-  }
-
-  .hero-copy h1 {
-    margin-top: 18px;
-    font-size: clamp(54px, 7.2vw, 108px);
-    line-height: 0.9;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-  }
-
-  .hero-copy h1 span { display: block; }
-
-  .hero-copy p {
-    max-width: 420px;
-    margin-top: 22px;
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.8;
-  }
-
-  .hero-meta {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 30px;
-    max-width: 420px;
-  }
-
-  .meta-card {
-    padding: 14px 16px;
-    border-radius: 18px;
-    background: var(--panel-soft);
-    border: 1px solid var(--line);
-  }
-
-  .meta-card strong {
-    display: block;
-    font-size: 11px;
-    font-family: 'IBM Plex Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #e6ecf5;
-    margin-bottom: 8px;
-  }
-
-  .meta-card span {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
-  .hero-visual {
-    border-radius: 36px;
-    padding: 28px;
-    min-height: 540px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-visual::before {
-    content: "";
-    position: absolute;
-    inset: 16px;
-    border-radius: 28px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
-    border: 1px solid rgba(255,255,255,0.05);
-  }
-
-  .stack {
-    position: relative;
-    height: 100%;
-    min-height: 484px;
-    border-radius: 28px;
-    background: linear-gradient(180deg, #0f1118 0%, #171922 100%);
-    border: 1px solid rgba(255,255,255,0.06);
-    overflow: hidden;
-  }
-
-  .stack::before {
-    content: "";
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(76,120,255,0.42), transparent 70%);
-    top: -120px;
-    right: -80px;
-  }
-
-  .stack::after {
-    content: "";
-    position: absolute;
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,93,102,0.4), transparent 72%);
-    left: -110px;
-    bottom: -120px;
-  }
-
-  .stack-label {
-    position: absolute;
-    top: 26px;
-    left: 26px;
-    color: rgba(255,255,255,0.9);
-    font-size: 14px;
-    font-weight: 600;
-    z-index: 2;
-  }
-
-  .shot {
-    position: absolute;
-    background: linear-gradient(180deg, #fbfcff 0%, #edf2ff 100%);
-    border-radius: 26px;
-    box-shadow: 0 26px 50px rgba(0,0,0,0.35);
-    overflow: hidden;
-  }
-
-  .shot-a {
-    width: 54%;
-    height: 58%;
-    top: 92px;
-    left: 40px;
-    transform: rotate(-8deg);
-  }
-
-  .shot-b {
-    width: 48%;
-    height: 52%;
-    top: 72px;
-    right: 32px;
-    transform: rotate(10deg);
-    z-index: 2;
-  }
-
-  .shot-c {
-    width: 42%;
-    height: 34%;
-    right: 78px;
-    bottom: 34px;
-    transform: rotate(5deg);
-    z-index: 3;
-  }
-
-  .shot-bar {
-    height: 18px;
-    background: linear-gradient(90deg, #eef2fb, #f8faff);
-    border-bottom: 1px solid rgba(17,24,39,0.08);
-  }
-
-  .shot-body {
-    height: calc(100% - 18px);
-    padding: 18px;
-    position: relative;
-  }
-
-  .stripe-red,
-  .stripe-blue,
-  .stripe-gray {
-    border-radius: 12px;
-    position: absolute;
-  }
-
-  .stripe-red { background: linear-gradient(90deg, #ff5d66, #ff847f); }
-  .stripe-blue { background: linear-gradient(90deg, #4770ff, #31c0ff); }
-  .stripe-gray { background: #dbe3f1; }
-
-  .shot-a .stripe-red:nth-child(1) { top: 18px; left: 18px; right: 24%; height: 16px; }
-  .shot-a .stripe-blue:nth-child(2) { top: 48px; left: 18px; width: 36%; height: 12px; }
-  .shot-a .stripe-gray:nth-child(3) { top: 78px; left: 18px; right: 18px; height: 110px; }
-  .shot-a .stripe-blue:nth-child(4) { left: 18px; bottom: 62px; width: 44%; height: 52px; }
-  .shot-a .stripe-red:nth-child(5) { right: 18px; bottom: 32px; width: 30%; height: 82px; }
-
-  .shot-b .stripe-blue:nth-child(1) { top: 18px; left: 18px; right: 30%; height: 16px; }
-  .shot-b .stripe-gray:nth-child(2) { top: 46px; left: 18px; right: 18px; height: 70px; }
-  .shot-b .stripe-red:nth-child(3) { left: 18px; bottom: 34px; width: 38%; height: 96px; }
-  .shot-b .stripe-blue:nth-child(4) { right: 18px; bottom: 50px; width: 28%; height: 74px; }
-
-  .shot-c .stripe-gray:nth-child(1) { top: 18px; left: 18px; right: 18px; height: 44px; }
-  .shot-c .stripe-red:nth-child(2) { left: 18px; bottom: 18px; width: 34%; height: 48px; }
-  .shot-c .stripe-blue:nth-child(3) { right: 18px; bottom: 18px; width: 26%; height: 48px; }
 
   .content {
     margin-top: 28px;
@@ -330,9 +94,43 @@
     gap: 16px;
   }
 
-  .flow-card,
-  .detail-card,
-  .metric-card {
+  .flow-visual {
+    margin-top: 20px;
+    border-radius: 24px;
+    border: 1px solid var(--line-strong);
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    overflow: hidden;
+  }
+
+  .flow-visual-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .flow-visual-head strong {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .flow-visual-head span {
+    color: var(--muted);
+    font: 500 12px/1 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .flow-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .flow-card {
     background: linear-gradient(180deg, #26272f 0%, #22232b 100%);
     border: 1px solid var(--line-strong);
     border-radius: 24px;
@@ -345,8 +143,7 @@
     min-height: 220px;
   }
 
-  .flow-card::before,
-  .detail-card::before {
+  .flow-card::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -381,100 +178,20 @@
   .tag.red { color: #ff8c93; }
   .tag.gold { color: #ffc98a; }
 
-  .flow-card h3,
-  .detail-card h3 {
+  .flow-card h3 {
     margin-top: 18px;
     font-size: 24px;
     line-height: 1;
     letter-spacing: -0.04em;
   }
 
-  .flow-card p,
-  .detail-card p,
-  .metric-card p,
-  .list li {
+  .flow-card p {
     color: var(--muted);
     font-size: 14px;
     line-height: 1.75;
   }
 
   .flow-card p { margin-top: 14px; }
-
-  .detail-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 16px;
-  }
-
-  .detail-card {
-    padding: 24px;
-    min-height: 290px;
-  }
-
-  .list {
-    list-style: none;
-    display: grid;
-    gap: 12px;
-    margin-top: 18px;
-  }
-
-  .list li {
-    padding: 12px 14px;
-    border-radius: 16px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .code-block {
-    margin-top: 18px;
-    padding: 16px;
-    border-radius: 18px;
-    background: #16171d;
-    border: 1px solid rgba(255,255,255,0.08);
-    font: 400 12px/1.8 'IBM Plex Mono', monospace;
-    color: #c6d2e3;
-    overflow: auto;
-  }
-
-  .code-blue { color: #75b7ff; }
-  .code-red { color: #ff8d95; }
-  .code-gold { color: #ffc98a; }
-  .code-muted { color: #7f8a9b; }
-
-  .metrics {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  .metric-card {
-    padding: 22px;
-    min-height: 180px;
-  }
-
-  .metric-card strong {
-    display: block;
-    font-size: clamp(42px, 5vw, 72px);
-    line-height: 0.9;
-    letter-spacing: -0.06em;
-    margin: 16px 0 10px;
-  }
-
-  .metric-card:nth-child(1) strong { color: var(--cyan); }
-  .metric-card:nth-child(2) strong { color: var(--red); }
-  .metric-card:nth-child(3) strong { color: var(--gold); }
-
-  .metric-card span {
-    display: inline-block;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.06);
-    color: #d7deea;
-    font: 500 11px/1 'IBM Plex Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
 
   .reveal {
     opacity: 0;
@@ -488,26 +205,13 @@
   }
 
   @media (max-width: 1080px) {
-    .hero,
-    .detail-grid,
-    .flow-grid,
-    .metrics { grid-template-columns: 1fr; }
-
-    .hero-copy,
-    .hero-visual { min-height: auto; }
+    .flow-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 720px) {
     .page { width: min(100% - 24px, 1280px); padding-top: 18px; }
-    .hero-copy,
-    .hero-visual,
     .panel { padding: 20px; border-radius: 24px; }
-    .hero-meta { grid-template-columns: 1fr; }
     .panel-title { flex-direction: column; }
-    .stack { min-height: 420px; }
-    .shot-a { left: 20px; width: 58%; }
-    .shot-b { right: 18px; width: 50%; }
-    .shot-c { right: 24px; width: 46%; }
   }
 </style>
 </head>
@@ -517,8 +221,8 @@
     <section class="content">
       <div class="panel reveal">
         <div class="panel-title">
-          <h2>How It Was Built</h2>
-          <p>The structure stays the same, but the presentation now follows the reference image: modular dark cards, tighter typography, brighter status tags, and a stronger dashboard feel.</p>
+          <h2>Development Process</h2>   
+          <p>From design to code: Extract design specs through Figma MCP, generate code with Cursor AI, and refine details through manual review.</p>
         </div>
         <div class="flow-grid">
           <article class="flow-card">
@@ -537,25 +241,30 @@
             <p>Refines edge cases, validates product logic, and corrects visual drift where human judgment is still more reliable than generated output.</p>
           </article>
         </div>
+        <div class="flow-visual">
+          <div class="flow-visual-head">
+            <strong>AI Delivery Flow</strong>
+            <span>Reference Layout</span>
+          </div>
+          <img src="./ai.png" alt="AI content and ad delivery workflow" loading="lazy">
+        </div>
       </div>
-
 
     </section>
   </main>
 
   <script>
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('on');
-        obs.unobserve(entry.target);
-      });
-    }, { threshold: 0.08 });
-
-    document.querySelectorAll('.reveal').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.06}s`;
-      obs.observe(el);
-    });
+    const reveals = document.querySelectorAll('.reveal');
+    if (reveals.length) {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('on');
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.08 });
+      reveals.forEach(el => obs.observe(el));
+    }
   </script>
 </body>
 </html>
