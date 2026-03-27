@@ -37,10 +37,10 @@ interface ReferencePreview {
 }
 
 const DEFAULT_ARTICLES: RelatedArticle[] = [
-  { id: '1', title: "Bitcoin ETF: What's Next in Grayscale's Battle With the SEC" },
-  { id: '2', title: '7 Best Private Credit ETFs to Buy in 2023' },
-  { id: '3', title: '7 Best Long-Term ETFs to Buy and Hold' },
-  { id: '4', title: '7 Best International Stock Funds to Buy for 2026' },
+  { id: '1', title: "Bitcoin ETF: What's Next in Grayscale's Battle With the SEC", image: '/figma-assets/bcabc5f6e79ce65286eba40f5afa8ec8ea91b58b.png' },
+  { id: '2', title: '7 Best Private Credit ETFs to Buy in 2023', image: '/figma-assets/e48e30b066c2529c4fa856912bf2a3b9237f4270.png' },
+  { id: '3', title: '7 Best Long-Term ETFs to Buy and Hold', image: '/figma-assets/e42c932e2a48f3a74566aee97e9ab0a3af314138.png' },
+  { id: '4', title: '7 Best International Stock Funds to Buy for 2026', image: '/figma-assets/ca92f056fe688300ad9915ea3904f19eb2e3c985.png' },
 ];
 const US_NEWS_LOGO_SRC = '/figma-assets/5b8eb72d625e6b7705425a98a5513b9c1502893d.png';
 
@@ -412,14 +412,16 @@ export function AIArticleModule({
           {/* Related Articles */}
           <div className="space-y-2 pt-2 md:space-y-3 md:pt-4">
             <h3 className="sr-only">Related Articles</h3>
-            <div className="-mx-3 overflow-x-auto px-3 pb-1 md:mx-0 md:px-0">
-              <div className="flex w-max gap-4 md:grid md:w-full md:grid-cols-4 md:gap-3">
+            <div className="-mx-3 overflow-x-auto px-3 pb-1 md:-mx-6 md:px-6">
+              <div className="flex w-max gap-4">
               {relatedArticles.map((article) => (
                 <div
                   key={article.id}
-                  className="w-[178px] overflow-hidden rounded-[16px] border border-[rgba(0,0,0,0.1)] bg-white transition-shadow hover:shadow-md md:w-auto"
+                  className="w-[178px] shrink-0 overflow-hidden rounded-[16px] border border-[rgba(0,0,0,0.1)] bg-white transition-shadow hover:shadow-md"
                 >
-                  <div className="h-[98px] w-full bg-gradient-to-br from-gray-300 to-gray-400" />
+                  <div className="relative h-[98px] w-full">
+                    {article.image ? <Image alt={article.title} className="object-cover" src={article.image} fill sizes="178px" /> : <div className="h-full w-full bg-gradient-to-br from-gray-300 to-gray-400" />}
+                  </div>
                   <div className="px-3 pb-3 pt-[14px]">
                     <p className="text-[14px] leading-[18px] text-[#626262]">{article.title}</p>
                   </div>
@@ -430,7 +432,7 @@ export function AIArticleModule({
           </div>
 
           {/* Helpfulness */}
-          <div className="flex items-center justify-between border-t pt-2 md:pt-4">
+          <div className="flex items-center justify-between  pt-2 md:pt-4">
             <p className="text-xs font-medium text-gray-700">Was this response helpful?</p>
             <div className="flex gap-2">
               <button
